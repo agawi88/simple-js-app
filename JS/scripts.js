@@ -15,3 +15,4 @@ let pokemonList = [
     types: ["fox", "tails", "flashFire", "draught"]
     }
 ];
+
