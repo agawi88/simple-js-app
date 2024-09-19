@@ -18,8 +18,8 @@ types: ["fox", "tails", "flashFire", "draught"],
 
 let text = "";
 let i = 0;
-for (;pokemonList[i].name;){
-  text = text + " " + pokemonList[i].name;
+for (pokemonList[i].name){
+  text = text + " " + pokemonList[i].name + " ( " + pokemonList[i].height + ")";
   i++;
 }
 document.write(text);
