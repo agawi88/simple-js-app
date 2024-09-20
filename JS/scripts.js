@@ -16,25 +16,6 @@ types: ["fox", "tails", "flashFire", "draught"],
 },
 ];
 
-/* let text = "";
-let i = 0;
-for (;pokemonList[i].name;){
-  text = text + " " + pokemonList[i].name + " ( " + pokemonList[i].height + ")";
-  i++;
-}
-document.write(text); */
-
-
-/* for (let i = 0; i < pokemonList.length; i++)
-document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + "</p>");
-{
-if (pokemonList[i].height >= 1){
-document.write(" Wow! You're big!");
-}else { 
-document.write("You are tiny!"); 
-}
-} */
-
 for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height >= 1) {
     document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + " Wow! You're big!" + "</p>");
