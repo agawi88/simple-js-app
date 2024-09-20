@@ -16,19 +16,21 @@ types: ["fox", "tails", "flashFire", "draught"],
 },
 ];
 
-let text = "";
+/* let text = "";
 let i = 0;
 for (;pokemonList[i].name;){
   text = text + " " + pokemonList[i].name + " ( " + pokemonList[i].height + ")";
   i++;
 }
-document.write(text);
+document.write(text); */
 
 
-for (let i = 0; i < pokemonList.length; i++) {
+for (let i = 0; i < pokemonList.length; i++)
+document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + "</p>");
+{
 if (pokemonList[i].height >= 1){
-console.log(pokemonList[i].name + " (height: "+ pokemonList[i].height + "), wow! You're big!");
+document.write(" Wow! You're big!");
 }else { 
-console.log(pokemonList[i].name + " (height: " + pokemonList[i].height + ") you are tiny!"); 
+document.write("You are tiny!"); 
 }
 }
