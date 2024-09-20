@@ -2,5 +2,7 @@ body {
     background-color: bisque;
     font-size: 16px;
     font-family: "Exo", system-ui;
-    color:#6f5454; 
+    color:#6f5454;
+    flex: auto;
+    text-align: center; 
 }
