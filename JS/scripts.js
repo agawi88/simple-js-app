@@ -36,9 +36,10 @@ document.write("You are tiny!");
 } */
 
 for (let i = 0; i < pokemonList.length; i++) {
-  if (i < pokemonList.length) {
+  if (pokemonList[i].height >= 1) {
     document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + " Wow! You're big!" + "</p>");
-  } else {
+  } 
+  else {
     document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + "You are tiny!" + "</p>");
   }
 } 
