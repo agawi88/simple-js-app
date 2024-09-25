@@ -25,6 +25,7 @@ types: ["fox", "tails", "flashFire", "draught"],
   }
 }  */
 
+(function () {
   function myLoopFunction(pokemon) {
   
    if (pokemon.height >= 1) {
@@ -32,6 +33,7 @@ types: ["fox", "tails", "flashFire", "draught"],
   } 
   else {
     document.write("<p>" + pokemon.name + " (height: " + pokemon.height + ")" + "You are tiny!" + "</p>");
-}
+        }
 }
 pokemonList.forEach(myLoopFunction);
+})();
