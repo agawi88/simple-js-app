@@ -1,3 +1,5 @@
+let pokemonRepository = (function () {
+
 let pokemonList = [
 {
 name: "Pikachu",
@@ -36,4 +38,5 @@ types: ["fox", "tails", "flashFire", "draught"],
         }
 }
 pokemonList.forEach(myLoopFunction);
-})();
+  })();
+})(); 
