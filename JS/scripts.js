@@ -18,6 +18,24 @@ types: ["fox", "tails", "flashFire", "draught"],
 },
 ];
 
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Pikachu' });
+console.log(pokemonRepository.getAll()); 
+  
 /* for (let i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height >= 1) {
     document.write("<p><b>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + " Wow! You're big!" + "</b></p>");
@@ -39,4 +57,3 @@ types: ["fox", "tails", "flashFire", "draught"],
 }
 pokemonList.forEach(myLoopFunction);
   })();
-})(); 
