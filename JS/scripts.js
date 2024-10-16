@@ -1,4 +1,4 @@
-let pokemonRepository = (function () {
+var pokemonRepository = (function () {
 
 let pokemonList = [
 {
@@ -19,7 +19,9 @@ types: ["fox", "tails", "flashFire", "draught"],
 ];
 
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (typeof pokemon === 'object') {
+      pokemonList.push(pokemon);
+    }
   }
 
   function getAll() {
@@ -35,17 +37,7 @@ types: ["fox", "tails", "flashFire", "draught"],
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Pikachu' });
 console.log(pokemonRepository.getAll()); 
-  
-/* for (let i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height >= 1) {
-    document.write("<p><b>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + " Wow! You're big!" + "</b></p>");
-  } 
-  else {
-    document.write("<p>" + pokemonList[i].name + " (height: " + pokemonList[i].height + ")" + "You are tiny!" + "</p>");
-  }
-}  */
 
-(function () {
   function myLoopFunction(pokemon) {
   
    if (pokemon.height >= 1) {
@@ -55,5 +47,13 @@ console.log(pokemonRepository.getAll());
     document.write("<p>" + pokemon.name + " (height: " + pokemon.height + ")" + "You are tiny!" + "</p>");
         }
 }
-pokemonList.forEach(myLoopFunction);
-  })();
+pokemonRepository.getAll().forEach(myLoopFunction);
+
+Object.keys(pokemonRepository.getAll()).forEach(function(property) {
+  document.write(property + ': ' + pokemonRepository.getAll()[property] + '<br>');
+});
+
+function filterPokemon(arr, query) {
+  return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+}
+console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
