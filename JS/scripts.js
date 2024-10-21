@@ -45,7 +45,7 @@ types: ["fox", "tails", "flashFire", "draught"],
     ListItem.appendChild(button);
     pokemonList.appendChild(ListItem);
     button.addEventListener('click', function showDetails(pokemon) {
-      console.log(pokemon)
+      console.log(add(pokemon))
     });
   }
 
@@ -62,11 +62,11 @@ types: ["fox", "tails", "flashFire", "draught"],
 })();
 
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu', height: 0.3, types: ["electric"] });
+pokemonRepository.add({ name: 'Vulpix', height: 0.6, types: "fire" });
 console.log(pokemonRepository.getAll()); 
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-  //console.log(pokemon); // is this necessary? it remain from the previous version of the forEach loop
+  console.log(pokemon);
   pokemonRepository.addListItem(pokemon);
 });
 
@@ -75,6 +75,6 @@ Object.keys(pokemonRepository.getAll()).forEach(function(property) {
 });
 
 function filterPokemon(arr, query) {
-  return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
-}
+  return arr.filter((el) => el.pokemon.toLowerCase().includes(query.toLowerCase()));
+  }
 console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
