@@ -23,11 +23,12 @@ types: ["fox", "tails", "flashFire", "draught"],
       typeof pokemon === 'object' &&
       "name" in pokemon &&
       "height" in pokemon &&
-      "types" in pokemon) {
-      repository.push(pokemon);
-    }
-    else {
-      console.log("Pokemon is not correct");
+      "types" in pokemon
+    Array.isArray(pokemon.types)
+    ){
+    repository.push(pokemon);
+    } else {
+    console.log("Pokemon is not correct");
     }
   }
 
@@ -36,7 +37,6 @@ types: ["fox", "tails", "flashFire", "draught"],
   }
 
   function addListItem(pokemon) {
-
     let pokemonList = document.querySelector(".main_list") 
     let ListItem = document.createElement("li");
     let button = document.createElement("button");
@@ -44,10 +44,13 @@ types: ["fox", "tails", "flashFire", "draught"],
     button.classList.add("li_button");
     ListItem.appendChild(button);
     pokemonList.appendChild(ListItem);
-    button.addEventListener('click', function showDetails(pokemon) {
+    /*button.addEventListener('click', function showDetails(pokemon) {
       console.log(add(pokemon))
-    });
-  }
+    });*/
+    /*button.addEventListener("click", function () {
+    showDetails(pokemon);*/
+  });
+  
 
   function showDetails(pokemon) {
     console.log(pokemon)
@@ -59,10 +62,11 @@ types: ["fox", "tails", "flashFire", "draught"],
     addListItem: addListItem
   };
 
-})();
+();
 
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Vulpix', height: 0.6, types: "fire" });
+
+pokemonRepository.add({ name: 'Vulpix', height: 0.6, types: ["fire"] });
 console.log(pokemonRepository.getAll()); 
 
 pokemonRepository.getAll().forEach(function (pokemon) {
@@ -75,6 +79,7 @@ Object.keys(pokemonRepository.getAll()).forEach(function(property) {
 });
 
 function filterPokemon(arr, query) {
-  return arr.filter((el) => el.pokemon.toLowerCase().includes(query.toLowerCase()));
+  return arr.filter((el) =>
+  el.name.toLowerCase().includes(query.toLowerCase()));
   }
 console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
