@@ -147,7 +147,7 @@ console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
       showErrorMessage(passwordInput, 'Password is a required field.');
       return false;
     }
-    if (value.langth < 8) {
+    if (value.length < 8) {
       showErrorMessage(passwordInput, 'The password needs to be at least 8 characters long.');
       return false;
     }
@@ -160,15 +160,108 @@ console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
     let isValidPassword = validatePassword();
     return isValidEmail && isValidPassword;
   }
-  
-  emailInput.addEventListener('input', validateEmail);
-  passwordInput.addEventListener('input', validatePassword);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (validateForm()) {
       alert('Success!');
     }
-  })
+  });
+
+  emailInput.addEventListener('input', validateEmail);
+  passwordInput.addEventListener('input', validatePassword);
+
+})();
+
+(function() {
+  
+  let modalContainer = document.querySelector('#modal-container');
+  let dialogPromiseReject;
+
+function showModal(title, text) {
+
+  modalContainer.innerHTML = '';
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  
+  let closeButtonElement = document.createElement('button');
+  closeButtonElement.classList.add('modal-close');
+  closeButtonElement.innerText = 'Close';
+  closeButtonElement.addEventListener('click', hideModal);
+  
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = title;
+  
+  let contentElement = document.createElement('p');
+  contentElement.innerText = text;
+  
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(titleElement);
+  modal.appendChild(contentElement);
+  modalContainer.appendChild(modal);
+    
+  modalContainer.classList.add('is-visible');
+}
+  
+ function hideModal() {
+  modalContainer.classList.remove('is-visible');
+   
+   if (dialogPromiseReject) {
+     dialogPromiseReject();
+     dialogPromiseReject = null;
+   }
+}
+  
+ function showDialog(title, text) {
+   showModal(title, text);
+
+  let modal = modalContainer.querySelector('.modal');
+  
+  let confirmButton = document.createElement('button');
+  confirmButton.classList.add('modal-confirm');
+  confirmButton.innerText = 'Confirm';
+  
+  let cancelButton = document.createElement('button');
+ cancelButton.classList.add('modal-cancel');
+  cancelButton.innerText = 'Cancel';
+  
+  modal.appendChild(confirmButton);
+  modal.appendChild(cancelButton);
+    
+  confirmButton.focus();
+  
+  return new Promise((resolve, reject) => {
+    cancelButton.addEventListener('click', hideModal);
+    confirmButton.addEventListener('click', () => {
+      dialogPromiseReject = null;      
+      hideModal();
+      resolve(); 
+    });
+   dialogPromiseReject = reject;       
+  });
+ }
+   document.querySelector('#show-modal').addEventListener('click', () => {
+      showModal('Modal title', 'This is the modal content!');
+    });
+  
+  document.querySelector('#show-dialog').addEventListener('click', () => {
+    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
+      alert('confirmed!');
+    }, () => {
+        alert ('not confirmed');
+    });
+  });
+ 
+  window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+    hideModal();  
+  }
+});
+ modalContainer.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer) {
+    hideModal();
+  }
+}); 
 
 })();
