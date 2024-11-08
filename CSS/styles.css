@@ -51,6 +51,19 @@ ul {
     /*transform: translateY(4px);*/
 }
 
+.input-wrapper {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    min-width: 75px;
+}
+.error-message {
+    color: #780f0f;
+    font-size: 0.8em;
+}
+
 @media all and (min-width: 750px) and (min-height: 942px){
     main {
         margin-top: 70px;
