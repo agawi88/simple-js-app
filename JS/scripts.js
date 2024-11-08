@@ -96,3 +96,79 @@ function filterPokemon(arr, query) {
   return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
   }
 console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
+
+(function() {
+  let form = document.querySelector('#register-form');
+  let emailInput = document.querySelector('#email');
+  let passwordInput = document.querySelector('#password');
+  
+  function showErrorMessage (input, message) {
+    let container = input.parentElement;
+    let error = container.querySelector('.error-message');
+    if (error) {
+      container.removeChild(error);
+    }
+    if (message){
+      let error = document.createElement('div');
+      error.classList.add('error-message');
+      error.innerText = message;
+      container.appendChild(error);
+}
+}
+  
+  function validateEmail() {
+    let value = emailInput.value;
+        /* the underneath should stay in the same place as in the beginning of coding the email validation?
+    let hasAtSign = value.indexOf('@') > -1;
+    let hasDot = value.indexOf('.') > -1;
+    return value && hasAtSign && hasDot;*/
+    
+    if (!value) {
+      showErrorMessage(emailInput, 'Email is a required field.');
+      return false;
+    }
+    if (value.indexOf('@') === -1) {
+      showErrorMessage(emailInput, 'You must eneter a valid email address.');
+      return false;
+    }
+    if (value.indexOf('.') === -1) {
+      showErrorMessage(emailInput, 'You must eneter a valid email address.');
+      return false;
+    }
+    showErrorMessage(emailInput, null);
+    return true;
+  }
+  
+  function validatePassword() {
+    let value = passwordInput.value;
+    // return value && value.length >= 8;
+    
+    if (!value) {
+      showErrorMessage(passwordInput, 'Password is a required field.');
+      return false;
+    }
+    if (value.langth < 8) {
+      showErrorMessage(passwordInput, 'The password needs to be at least 8 characters long.');
+      return false;
+    }
+    showErrorMessage(passwordInput, null);
+    return true;
+  }
+  
+  function validateForm() {
+    let isValidEmail = validateEmail();
+    let isValidPassword = validatePassword();
+    return isValidEmail && isValidPassword;
+  }
+  
+  emailInput.addEventListener('input', validateEmail);
+  passwordInput.addEventListener('input', validatePassword);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert('Success!');
+    }
+  })
+
+})();
