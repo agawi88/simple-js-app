@@ -92,6 +92,7 @@ label {
     }
 } 
 
+    /* added for practice reasons. To be deletaed later. */
 #modal-container {
     display: none;
 }
