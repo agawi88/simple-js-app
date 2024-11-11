@@ -6,7 +6,7 @@ let pokemonList = [];
   /*let item = document.querySelector(loadList.pokemon)*/
 
 
-  function showModal(name, height, img) {
+  function showModal(title, text, img) {
     modalContainer.innerHTML = '';
 
     let modal = document.createElement('div');
@@ -18,10 +18,10 @@ let pokemonList = [];
     closeButtonElement.addEventListener('click', hideModal);
 
    let nameElement = document.createElement('h1');
-    nameElement.innerText = name;
+    nameElement.innerText = title;
 
     let heightElement = document.createElement('p');
-    heightElement.innerText = height; 
+    heightElement.innerText = text; 
     
    /* let typesElement = document.createElement('p');
     typesElement.innerText = types;*/
@@ -120,14 +120,14 @@ let pokemonList = [];
       item.name = details.name;
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
-      item.types = details.types;
+     /* item.types = details.types;*/
     }).catch(function (e) {
       console.error(e);
     });
   }
 
  function showDetails(item) { loadDetails(item).then(function (details) {
-    showModal(item.name, item.height + item.imageUrl)
+    showModal(item.name + "Height: " + item.height + item.imageUrl)
   });
   }
 
@@ -143,8 +143,6 @@ let pokemonList = [];
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails
-    /*showDetails: showDetails,*/
-   /* showModal: showModal,*/
   };
 
 })();
