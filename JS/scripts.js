@@ -1,7 +1,65 @@
-var pokemonRepository = (function () {
+let pokemonRepository = (function () {
 
 let pokemonList = [];
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';  
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';  
+  let modalContainer = document.querySelector('#modal-container');
+  /*let item = document.querySelector(loadList.pokemon)*/
+
+
+  function showModal(name, height, img) {
+    modalContainer.innerHTML = '';
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+
+   let nameElement = document.createElement('h1');
+    nameElement.innerText = name;
+
+    let heightElement = document.createElement('p');
+    heightElement.innerText = height; 
+    
+   /* let typesElement = document.createElement('p');
+    typesElement.innerText = types;*/
+    
+    let imgContainer = document.querySelector('#image-container');
+    let detailsUrl = document.createElement('img');
+    /*detailsUrl.src = pokemon.detailsUrl;*/
+    detailsUrl.setAttribute("src", img);
+    detailsUrl.setAttribute("width", "104");
+    detailsUrl.setAttribute("height", "104");
+    detailsUrl.setAttribute("alt", "The pokemon image");
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(nameElement);
+    modal.appendChild(heightElement); 
+    /*modal.appendChild(typesElement);*/
+    imgContainer.appendChild(detailsUrl);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+  }
+
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
 
   function add(pokemon) {
     if (
@@ -25,12 +83,12 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   function addListItem(pokemon) {
 
     let pokemonList = document.querySelector(".main_list") 
-    let ListItem = document.createElement("li");
+    let listItem = document.createElement("li");
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("li_button");
-    ListItem.appendChild(button);
-    pokemonList.appendChild(ListItem);
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
     });
@@ -43,6 +101,8 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
+          height: item.height,
+         /* types:item.types,*/
           detailsUrl: item.url
         };
         add(pokemon);
@@ -57,6 +117,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      item.name = details.name;
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
@@ -65,11 +126,16 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     });
   }
 
-    function showDetails(item) {
+ function showDetails(item) { loadDetails(item).then(function (details) {
+    showModal(item.name, item.height + item.imageUrl)
+  });
+  }
+
+/*     function showDetails(item) {
     loadDetails(item).then(function () {
       console.log(item)
-    });
-  }
+    }); 
+  }*/
 
   return {
     add: add,
@@ -77,6 +143,8 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails
+    /*showDetails: showDetails,*/
+   /* showModal: showModal,*/
   };
 
 })();
@@ -97,6 +165,8 @@ function filterPokemon(arr, query) {
   }
 console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
 
+ /* Note:  added for practice reasons. Will be deleted later on.
+
 (function() {
   let form = document.querySelector('#register-form');
   let emailInput = document.querySelector('#email');
@@ -115,13 +185,9 @@ console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
       container.appendChild(error);
 }
 }
-  
+
   function validateEmail() {
     let value = emailInput.value;
-        /* the underneath should stay in the same place as in the beginning of coding the email validation?
-    let hasAtSign = value.indexOf('@') > -1;
-    let hasDot = value.indexOf('.') > -1;
-    return value && hasAtSign && hasDot;*/
     
     if (!value) {
       showErrorMessage(emailInput, 'Email is a required field.');
@@ -141,7 +207,6 @@ console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
   
   function validatePassword() {
     let value = passwordInput.value;
-    // return value && value.length >= 8;
     
     if (!value) {
       showErrorMessage(passwordInput, 'Password is a required field.');
@@ -264,4 +329,5 @@ function showModal(title, text) {
   }
 }); 
 
-})();
+})(); 
+// Here for practice reasons, will be deleted after the assignment has been successful. */
