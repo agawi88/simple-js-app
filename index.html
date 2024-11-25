@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple JS App</title>
+    <title>Pokedex App - a Simple JavaScript App</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -17,15 +17,60 @@
 </head>
 
 <body>
-
 <header>
-    <img src="img/TextPro.me_1671652b2f3e7d.jpg" alt="Pokedex logo" class="logo">
+    <nav class="navbar navbar-light bg-light">
+        <div class="form-inline">
+        <ul class="navbar-nav form-group">
+            <li class="nav-item">
+            <a class="navbar-brand form-inline" href="#">
+            <img src="img/TextPro.me_1671652b2f3e7d.jpg" class="logo d-inline-block align-top" alt="Pokedex logo">
+            </a>
+            </li>
+            <li class="nav-item col">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </li>
+        </ul>  
+        </div>
+    </nav>
 </header>
 
 <main>
-    <h1>Pokedex</h1>
-    <ul class="main_list"></ul>
-    <div id="modal-container"></div>
+<div class="container">
+    <h1>Pokemon Selection</h1>
+    <ul class="main_list list-group form-inline"></ul>
+        <!-- <div id="modal-container"></div> -->
+</div>    
+<div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismis="modal" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>    
 </main>
 
 <footer></footer>
