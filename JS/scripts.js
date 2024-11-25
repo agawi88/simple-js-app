@@ -4,7 +4,35 @@ let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';  
   let modalContainer = document.querySelector('#modal-container');
 
-  function showModal(title, height, img) {
+  //show modal
+  function showModal(item) {
+    
+    let modalBody = $(".modal-body");
+    let modalTitle = $(".modal-title");
+    let modalHeader = $(".modal-header");
+    //let modalContent = $("#modal-content");
+    //clear existing modal content
+    modalHeader.empty();
+    modalTitle.empty();
+    modalBody.empty();
+
+    //creating element for name/img/weight/etc in modal content
+    let nameElement = $("<h1>" + item.name + "</h1>");
+    let heightElement = $("<p>" + "Height: " + item.height + "</p>");
+    let weightElement = $("<p>" + "Weight: " + item.weight + "</p>");
+    let typesElement = $("<p>" + "Type: " + item.types + "</p>");
+    let imgElement = $('<img class="modal-img" style="width:50%>');
+    imgElement.attr("src", item.imgUrl);
+
+    // appending elements to modal structure
+    modalTitle.append(nameElement);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
+    modalBody.append(imgElement);
+
+  }
+  /*{
     modalContainer.innerHTML = '';
 
     let modal = document.createElement('div');
@@ -51,7 +79,7 @@ let pokemonList = [];
     if (target === modalContainer) {
       hideModal();
     }
-  });
+  }); */
 
   function add(pokemon) {
     if (
@@ -108,9 +136,11 @@ let pokemonList = [];
     return response.json();
     })
     .then(function (details) {
-    /*item.name = details.name;*/
+    item.name = details.name;
     item.imageUrl = details.sprites.front_default;
-    item.height = details.height;
+      item.height = details.height;
+      item.weight = details.weight;
+      item.types = details.types;
     })
       .catch(function (e) {
       console.error(e);
@@ -118,7 +148,7 @@ let pokemonList = [];
   }
 
  function showDetails(item) { loadDetails(item).then(function (details) {
-    showModal(item.name, item.height, item.imageUrl)
+    showModal(item.name, item.height, item.weight, item.types, item.imageUrl)
   });
   }
 
