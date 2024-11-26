@@ -21,7 +21,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,12 +35,12 @@
                 </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"> Portfolio <span class="sr-only">(current)</span></a>
+                    <a role="menuitem" class="btn btn-outline-warning" href="#"> Portfolio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item col">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 </li>
             </ul>  
@@ -53,7 +53,7 @@
             <h1>Pokémon Selection</h1>
         </div>
         <div class="container form-inline">
-            <ul class="pokemon-list list-group form-control">
+            <ul class="pokemon-list list-unstyled row">
             </ul>
         </div>    
         <div>
@@ -65,7 +65,7 @@
                     <div class="modal-content">
                         <div class="modal-header form-inline">
                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close form-control" data-dismis="modal" aria-label="close">
+                            <button type="button" class="close" data-dismis="modal" aria-label="close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
