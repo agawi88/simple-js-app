@@ -24,14 +24,14 @@ let pokemonRepository = (function () {
 
     let pokemonList = document.querySelector(".pokemon-list") 
     let listItem = document.createElement("li");
-    listItem.classList.add("list-group-item");
+    listItem.classList.add("col-4");
 
     let button = document.createElement("button");
     button.innerText = pokemon.name;
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#exampleModal");
     //button.classList.add("li_button");
-    button.classList = 'btn btn-secondary btn-lg btn-block';
+    button.classList = 'btn btn-warning btn-lg btn-block';
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
     });
