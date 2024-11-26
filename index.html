@@ -8,7 +8,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="CSS/styles.css">
     
-    <title>Pokedex - a Simple JS App</title>
+    <title>Pokédex - a Simple JS App</title>
 
     <!--<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -41,24 +41,23 @@
     </header>
 
     <main>
-        <div class="container">
-            <h1>Pokemon Selection</h1>
-            <ul class="pokemon-list list-group"></ul>
+        <div>
+            <h1>Pokémon Selection</h1>
+        </div>
+        <div class="container form-inline">
+            <ul class="pokemon-list list-group form-control">
+            </ul>
         </div>    
         <div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <!-- Bootstrap Modal -->
+            <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
-                            <button type="button" class="close" data-dismis="modal" aria-label="close">
+                        <div class="modal-header form-inline">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close form-control" data-dismis="modal" aria-label="close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
