@@ -36,6 +36,10 @@ h1 {
     padding-top: 15px;
 }
 
+.li {
+    margin-bottom: 10px;
+}
+
 /*.li_button,
 .btn-secondary {
     background-color: #e3c39c;
