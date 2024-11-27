@@ -33,12 +33,13 @@ h1 {
 }
 
 .container {
+    display: grid;
     padding-top: 15px;
 }
 
-.li {
+/* .row {
     margin-bottom: 10px;
-}
+} */
 
 /*.li_button,
 .btn-secondary {
