@@ -31,7 +31,7 @@ let pokemonRepository = (function () {
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#exampleModal");
     //button.classList.add("li_button");
-    button.classList = 'btn btn-warning btn-lg btn-block';
+    button.classList = "btn btn-warning btn-lg btn-block";
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
     });

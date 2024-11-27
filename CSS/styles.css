@@ -12,6 +12,10 @@ nav {
         box-shadow: #6f5454;
 }
 
+.nav-item:nth-child(2) {
+        margin-right: 8px;
+}
+
 .logo {
     display: flex;
     flex: auto;
@@ -111,9 +115,12 @@ label {
     border: #6f5454 solid 3px;
 }
 
-.btn-outline-warning,
-.btn-warning {
+.btn {
     color: #6f5454;
     border-color: #6f5454;
     background-color: #bea3a3a7;
+}
+
+.btn-warning {
+    margin-bottom: 24px;
 }
