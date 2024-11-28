@@ -12,16 +12,17 @@ nav {
         box-shadow: #6f5454;
 }
 
-.nav-item:nth-child(2) {
+.nav-item:nth-child(1) {
         margin-right: 8px;
+       /* color: #6f5454; unfortunately isn't working*/
+}
+
+.navbar-nav {
+    justify-items: right; /* is not eorking; navbar is supposed to be on the right */
 }
 
 .logo {
-    display: flex;
-    flex: auto;
-    margin-left: 15px;
-    margin-top: 10px;
-    border-radius: 10%;
+    border-radius: 5%; 
     box-shadow: 0 4px 6px rgba(34, 60, 80, .16);
 }
 
@@ -31,84 +32,13 @@ main {
 
 h1 {
     font-size: 35px bold;
-    text-align: left;
-    padding-left: 40px;
-    margin-left: 5px;
+    text-align: center;
 }
 
 .container {
     display: grid;
     padding-top: 15px;
 }
-
-/* .row {
-    margin-bottom: 10px;
-} */
-
-/*.li_button,
-.btn-secondary {
-    background-color: #e3c39c;
-    color: #6f5454;
-    border: 2px #de7e24 solid;
-    height: 50px;
-    width: 180px;
-    margin-bottom: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 5px 2px;  
-}
-
-.li_button:active,
-.btn-secondary active {
-    border:#833d27 3px solid ;
-    transition: 0.4s opacity, 0.5s background-color, 0.4s font-size;
-    box-shadow: 0 5px #d3cab5;
-    transform: translateY(4px);
-}*/
-
-/*.input-wrapper {
-    margin-bottom: 10px;
-}
-
-label {
-    display: inline-block;
-    min-width: 75px;
-}
-.error-message {
-    color: #780f0f;
-    font-size: 0.8em;
-}*/
-
-/*@media all and (min-width: 750px) and (min-height: 942px){
-    main {
-        margin-top: 70px;
-        line-height: 1.5px;
-        font-size: 20px;
-    }
-
-        .logo {
-            display: block;
-            justify-content: center;
-            margin-left: 42%;
-        }
-        h1 {
-            font-size: 40px bold;
-            text-align: center;
-            padding-bottom: 20px;
-        }
-
-    .li_button {
-        font-size: 20px,;
-        display: block;
-        width: 40%;
-        margin: 15px auto;
-        justify-content: center;
-        text-align: center;
-    }
-} */
-
 
  .modal-content {
     background-color: #f7e8d9;
@@ -124,3 +54,8 @@ label {
 .btn-warning {
     margin-bottom: 24px;
 }
+
+/* Was intended to change the font color of the disabled button, but isn't working -->
+.disabled {
+    color:#6f5454;
+}*/
