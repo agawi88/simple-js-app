@@ -138,7 +138,11 @@ Object.keys(pokemonRepository.getAll()).forEach(function(property) {
   console.log(property + ': ' + pokemonRepository.getAll()[property] + '<br>');
 });
 
-function filterPokemon(arr, query) {
-  return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
-  }
-console.log(filterPokemon(pokemonRepository.getAll(), "pi"));
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
