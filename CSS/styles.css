@@ -75,8 +75,3 @@ h1 {
 .btn-warning {
     margin-bottom: 24px;
 }
-
-/* Was intended to change the font color of the disabled button, but isn't working -->
-.disabled {
-    color:#6f5454;
-}*/
