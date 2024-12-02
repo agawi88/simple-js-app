@@ -7,9 +7,27 @@ body {
     padding-top: 140px;
 }
 
+header {
+    display: flex;
+}
 nav {
         background: #f7e8d9;
         box-shadow: #6f5454;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-logo {
+        display: flex;
+        flex-grow: 1;
+        align-items: flex-start;
 }
 
 .nav-item:nth-child(1) {
@@ -17,8 +35,11 @@ nav {
        /* color: #6f5454; unfortunately isn't working*/
 }
 
-.navbar-nav {
-    justify-items: right; /* is not eorking; navbar is supposed to be on the right */
+.navbarList {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    max-width: 390px;
 }
 
 .logo {
