@@ -19,3 +19,5 @@
 <li>Add more detailed Pokémon information: like abilities and a back image.</li>
 <li>Implement a loading message to improver the perceived performance.</li>
 </ul>
+
+If you are interested in what I created, visit the following link: https://agawi88.github.io/simple-js-app/
